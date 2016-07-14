@@ -264,15 +264,19 @@ document.onkeydown = function handleKeyDown(e)
     var newDirection;
     switch (key)
   {
+  case 65:
   case 37:
       newDirection = "left"
       break;
+  case 87:
   case 38:
       newDirection = "up"
       break;
+  case 68:
   case 39:
       newDirection = "right"
       break;
+  case 83:    
   case 40:
       newDirection = "down"
       break;
