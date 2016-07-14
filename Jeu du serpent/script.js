@@ -9,8 +9,10 @@ window.onload = function()
   var yCoord = 0;
   var snakee;
   var applee;
-  var widthInBlocks = canvasWidth/blockSize;
-  var heightInBlocks = canvasHeight/blockSize
+  var widthInBlocks = Math.trunc(canvasWidth/blockSize);
+  canvasWidth = widthInBlocks * blockSize;
+  var heightInBlocks = Math.trunc(canvasHeight/blockSize);
+  canvasHeight = heightInBlocks * blockSize;
   var score;
 
   init();
