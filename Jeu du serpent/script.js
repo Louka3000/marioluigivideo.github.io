@@ -19,6 +19,7 @@ window.onload = function()
 
   function init()
   {
+
   var canvas = document.createElement('canvas');
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
@@ -63,7 +64,6 @@ window.onload = function()
     }
 
   }
-
       function gameOver()
       {
         ctx.save();
@@ -276,11 +276,12 @@ document.onkeydown = function handleKeyDown(e)
   case 39:
       newDirection = "right"
       break;
-  case 83:    
+  case 83:
   case 40:
       newDirection = "down"
       break;
   case 32:
+delete snakee;
 restart();
      return;
     default:
