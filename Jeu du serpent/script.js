@@ -14,6 +14,7 @@ window.onload = function()
   var heightInBlocks = Math.trunc(canvasHeight/blockSize);
   canvasHeight = heightInBlocks * blockSize;
   var score;
+  var isDead;
 
   init();
 
@@ -84,13 +85,14 @@ window.onload = function()
     snakee = new snake([[6,3], [5,3], [4,3], [3,3]], "right");
     applee = new apple([10,10]);
     score = 0;
+    isDead = 0;
     refreshCanvas();
   }
 
   function drawScore()
   {
     ctx.save();
-    ctx.font = "bold 70px sans-serif";
+    ctx.font = "bold 65px sans-serif";
     ctx.fillStyle = "#ff751a";
     ctx.fillText(score.toString(), 5, canvasHeight - 5 );
     ctx.restore();
@@ -188,18 +190,17 @@ window.onload = function()
          if(isNotBetweenHorizontalWalls || isNotBetweenVerticalWalls)
          {
             wallCollision = true;
+            isDead = 1;
          }
-
          for(var i = 0; i < rest.length ; i++)
          {
             if(snakeX === rest[i][0] && snakeY === rest[i][1] )
             {
               snakeCollision = true;
+              isDead = 1;
             }
          }
-
          return wallCollision || snakeCollision;
-
       };
       this.isEatingApple = function(appleToEat)
       {
@@ -212,7 +213,6 @@ window.onload = function()
          else
             return false;
       };
-
 }
 
 function beep() {
@@ -281,8 +281,11 @@ document.onkeydown = function handleKeyDown(e)
       newDirection = "down"
       break;
   case 32:
-delete snakee;
-restart();
+if (isDead == 1) {
+  delete snakee;
+  restart();
+}
+
      return;
     default:
       return;
