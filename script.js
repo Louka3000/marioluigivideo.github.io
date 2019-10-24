@@ -31,7 +31,7 @@ window.onload = function()
   document.body.appendChild(canvas);
   ctx = canvas.getContext('2d');
   snakee = new snake([[6,3], [5,3],[4,3], [3,3]], "right");
-  applee = new apple([10,10]);
+  applee = new apple([18,6]);
   score = 0;
   refreshCanvas();
   }
@@ -73,8 +73,8 @@ window.onload = function()
         ctx.fillStyle = "#000";
         ctx.strokeStyle = "white";
         ctx.lineWidth = 6;
-        ctx.strokeText("Game Over", 450, 240);
-        ctx.fillText("Game Over", 450, 240);
+        ctx.strokeText("GAME OVER", 420, 240);
+        ctx.fillText("GAME OVER", 420, 240);
         ctx.font = "bold 28px sans-serif";
         ctx.strokeText("Appuyer sur la touche Espace pour rejouer", 300, 275)
         ctx.fillText("Appuyer sur la touche Espace pour rejouer", 300, 275)
@@ -83,7 +83,7 @@ window.onload = function()
   function restart()
   {
     snakee = new snake([[6,3], [5,3], [4,3], [3,3]], "right");
-    applee = new apple([10,10]);
+    applee = new apple([18,6]);
     score = 0;
     isDead = 0;
     refreshCanvas();
